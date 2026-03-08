@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Logo Generator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>AI Logo Generator</h1>
+
+<input id="text" placeholder="Enter logo name">
+
+<br><br>
+
+<label>Select Logo Style</label>
+
+<select id="style">
+<option value="Tech">Tech</option>
+<option value="Gaming">Gaming</option>
+<option value="Startup">Startup</option>
+<option value="Creative">Creative</option>
+</select>
+
+<br><br>
+
+<label>Select an icon</label>
+
+<select id="icon">
+<option value="🚀">Rocket</option>
+<option value="🔥">Fire</option>
+<option value="💡">Idea</option>
+<option value="⚡">Energy</option>
+<option value="🌟">Star</option>
+</select>
+
+<br><br>
+
+<label>Choose Background Color</label>
+<input type="color" id="color" value="#000000">
+
+<br><br>
+
+<button onclick="makeLogo()">Create Logo</button>
+<button onclick="clearLogo()">Clear</button>
+
+<br><br>
+
+<img id="logo">
+
+<br><br>
+
+<a id="download" download="logo.png">
+<button>Download Logo</button>
+</a>
+
+<script>
+
+function makeLogo(){
+
+let name = document.getElementById("text").value;
+
+let style = document.getElementById("style").value;
+
+let icon = document.getElementById("icon").value;
+
+let colors = ["ff0000","0000ff","00ff00","000000","ff9900","9900ff"];
+
+let color = colors[Math.floor(Math.random()*colors.length)];
+
+let url = "https://dummyimage.com/400x200/" + color + "/ffffff&text=" + icon + "+" + name + "+" + style;
+
+let img = document.getElementById("logo");
+
+img.src = url;
+
+document.getElementById("download").href = url;
+
+function clearLogo(){
+document.getElementById("logo").src = "";
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
